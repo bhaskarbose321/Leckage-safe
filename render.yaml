@@ -1,15 +1,8 @@
 services:
   - type: web
-    name: leckage-safe-bqml
+    name: promotion-gate
     runtime: python
     plan: starter
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
-    envVars:
-      - key: STATE_DB_PATH
-        value: /var/data/state.db
-    disk:
-      name: state
-      mountPath: /var/data
-      sizeGB: 1
